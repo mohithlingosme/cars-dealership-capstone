@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About CarDeal — a sample car dealership directory built for the IBM Full Stack Developer capstone." />
+  <title>About Us | CarDeal Dealerships</title>
+  <link rel="stylesheet" href="/static/css/static-pages.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a href="/" class="brand">
+        <span class="brand-mark">CD</span>
+        <span>CarDeal <small>Dealerships</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/dealers">Dealers</a></li>
+        <li><a href="/About.html" class="active" aria-current="page">About Us</a></li>
+        <li><a href="/Contact.html">Contact Us</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register" class="nav-cta">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-hero" style="background-image: url('/static/images/exterior.jpg');">
+    <div class="container">
+      <h1>About CarDeal</h1>
+      <p>
+        CarDeal is a nationwide dealership directory that helps buyers compare showrooms,
+        read verified customer reviews and choose with confidence.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <h2>Our story</h2>
+        <p class="muted">
+          CarDeal started with a simple observation: buying a car is stressful when you cannot tell
+          which dealerships actually keep their promises. We bring dealer listings, customer reviews
+          and automatic sentiment analysis into one transparent directory.
+        </p>
+        <p class="muted">
+          Our team combines dealership experience with software engineering. From Brooklyn to
+          Berkeley, we work with independent showrooms to publish accurate inventory, hours and
+          contact details, and we never remove an honest negative review.
+        </p>
+        <p class="muted">
+          This site is a working sample application built for the IBM Full Stack Software Developer
+          capstone. It demonstrates a Django backend, React frontend, a Node.js and MongoDB
+          dealership service, and a Flask sentiment-analysis service.
+        </p>
+        <div class="stat-row">
+          <div class="stat"><strong>8</strong><span>Dealerships listed</span></div>
+          <div class="stat"><strong>6</strong><span>States covered</span></div>
+          <div class="stat"><strong>10</strong><span>Car makes indexed</span></div>
+        </div>
+      </div>
+      <img src="/static/images/team.jpg" alt="CarDeal team members standing in a dealership showroom" />
+    </div>
+  </section>
+
+  <section class="section" style="background: #eef2f7;">
+    <div class="container">
+      <h2>Meet the team</h2>
+      <p class="muted">The people behind the CarDeal directory.</p>
+      <div class="team-grid">
+        <article class="team-card">
+          <div class="avatar" aria-hidden="true">AM</div>
+          <h3>Alex Morgan</h3>
+          <p class="role">General Manager</p>
+          <p class="muted">Oversees dealer partnerships and keeps listings accurate across all states.</p>
+        </article>
+        <article class="team-card">
+          <div class="avatar" aria-hidden="true">PR</div>
+          <h3>Priya Raman</h3>
+          <p class="role">Sales Director</p>
+          <p class="muted">Leads buyer support and makes sure every review gets a fair response.</p>
+        </article>
+        <article class="team-card">
+          <div class="avatar" aria-hidden="true">DO</div>
+          <h3>Daniel Okafor</h3>
+          <p class="role">Finance Manager</p>
+          <p class="muted">Explains financing and pricing data so customers can compare offers clearly.</p>
+        </article>
+        <article class="team-card">
+          <div class="avatar" aria-hidden="true">SA</div>
+          <h3>Sofia Alvarez</h3>
+          <p class="role">Customer Experience Lead</p>
+          <p class="muted">Reviews sentiment trends and turns feedback into better dealer service.</p>
+        </article>
+      </div>
+      <p class="note">
+        These are fictional sample team profiles created for this capstone project. They do not
+        represent real employees. You can reach the sample team at
+        <a href="mailto:hello@cardeal.example.com">hello@cardeal.example.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 CarDeal Dealerships. Sample capstone application.</p>
+      <p><a href="/">Home</a> · <a href="/Contact.html">Contact Us</a></p>
+    </div>
+  </footer>
+</body>
+</html>

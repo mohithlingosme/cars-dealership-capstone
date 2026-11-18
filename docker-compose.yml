@@ -1,0 +1,54 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  dealership:
+    build:
+      context: ./server
+      dockerfile: database/Dockerfile
+    restart: unless-stopped
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/dealership
+      PORT: "3030"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    command: sh -c "node seed.js && node app.js"
+
+  sentiment:
+    build:
+      context: ./server
+      dockerfile: sentiment/Dockerfile
+    restart: unless-stopped
+    environment:
+      PORT: "5000"
+
+  web:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      DJANGO_DEBUG: "False"
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Set DJANGO_SECRET_KEY before starting the stack}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-localhost,127.0.0.1}
+      DJANGO_CSRF_TRUSTED_ORIGINS: ${DJANGO_CSRF_TRUSTED_ORIGINS:-http://localhost:8000}
+      DEALERSHIP_SERVICE_URL: http://dealership:3030
+      SENTIMENT_SERVICE_URL: http://sentiment:5000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - dealership
+      - sentiment
+    command: sh -c "python manage.py migrate && python manage.py seed_data && python manage.py collectstatic --noinput && gunicorn djangoproject.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 60"
+
+volumes:
+  mongo_data:

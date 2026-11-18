@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+db.sqlite3
+staticfiles/
+.pytest_cache/
+
+# Node
+node_modules/
+server/frontend/build/
+npm-debug.log*
+
+# Environment / secrets
+.env
+.env.*
+*.pem
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local run artifacts
+cookies*.txt
+*.log
+
+# Submission evidence is distributed separately (contains local test credentials)
+submission/

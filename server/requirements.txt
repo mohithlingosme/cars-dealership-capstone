@@ -1,0 +1,5 @@
+Django>=5.0,<5.2
+Flask>=3.0,<4.0
+requests>=2.31
+vaderSentiment>=3.3.2
+django-cors-headers>=4.3
